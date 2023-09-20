@@ -13,7 +13,8 @@
   },
   "devDependencies": {
     "@types/node": "^20.6.3",
-    "@types/readline-sync": "^1.4.4"
+    "@types/readline-sync": "^1.4.4",
+    "typescript": "^5.2.2"
   },
   "main": "src/functions/*.js"
 }
