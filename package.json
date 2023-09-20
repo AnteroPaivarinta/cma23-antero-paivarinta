@@ -3,12 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "ts-node": "ts-node",
     "start": "func start",
     "test": "echo \"No tests yet...\""
   },
   "dependencies": {
-    "@azure/functions": "^4.0.0-alpha.7"
+    "@azure/functions": "^4.0.0-alpha.7",
+    "readline-sync": "^1.4.10"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/node": "^20.6.3",
+    "@types/readline-sync": "^1.4.4"
+  },
   "main": "src/functions/*.js"
 }
