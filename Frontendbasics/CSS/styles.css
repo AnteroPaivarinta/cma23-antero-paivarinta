@@ -1,0 +1,52 @@
+.app {
+    background-color: purple;
+}
+.spacing {
+    margin-top: 50px;
+    border-color: rgb(178, 233, 26);
+    border-width: thin;
+    border-style: solid;
+    border-radius: 5px;
+}
+
+.info{
+    padding: 10px
+}
+
+.box {
+    width: '100%';
+    height: '100%';
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.box2 {
+    width: '100%';
+    height: '100%';
+    display: flex;
+    flex-direction: row;
+}
+
+.square {
+    width: 10%;
+    height: 100px;
+    background-color: rgb(33, 204, 147);
+}
+
+
+
+.redSquare1 {
+    width: 15%;
+    height: 100px;
+    background-color: red;
+    border-width: 1px;
+    border-color: blue;
+    border-style: solid;
+}
+
+.redSquare2 {
+    width: 40%;
+    height: 100px;
+    background-color: red;
+}
