@@ -5,7 +5,7 @@ import img from './Sieppaa.png'
 function App() {
   return (
     <div className="App">
-            <p>This is a paragraph.</p>
+      <p>This is a paragraph.</p>
       <p>This is a paragraph.</p>
       <p>This is a paragraph.</p>
       <a href="www.google.com">link text</a>

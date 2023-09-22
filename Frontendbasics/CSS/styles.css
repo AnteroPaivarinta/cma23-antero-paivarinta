@@ -50,3 +50,79 @@
     height: 100px;
     background-color: red;
 }
+
+
+.item-a {
+    grid-area: header;
+    width: 100%;
+    background-color: red;
+    height: 100%;
+    border-width: 1px;
+    border-color: blue;
+    border-style: solid;
+    flex-direction: row;
+    display: flex;
+
+  }
+  .item-b {
+    grid-area: main;
+    background-color: green;
+    border-width: 2px;
+    border-color: blue;
+    border-style: solid;
+  }
+  .item-c {
+    grid-area: sidebarA;
+    background-color: green;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .item-d {
+    grid-area: sidebarB;
+    background-color: green;
+    display: flex;
+    flex-direction: row;
+  }
+ 
+
+  .squareItem-A {
+    flex-grow: 1;
+    flex-basis: 0;
+    border-width: 1px;
+    border-color: paleturquoise;
+    border-style: solid;
+    
+  }
+
+  .squareItem-C {
+    flex-grow: 1;
+    flex-basis: 0;
+    height: 20%;
+    border-width: 1px;
+    border-color: paleturquoise;
+    border-style: solid;
+    
+  }
+
+  .squareItem-CTwo {
+    flex-grow: 1;
+    flex-basis: 0;
+    border-width: 1px;
+    border-color: paleturquoise;
+    border-style: solid;
+    
+  }
+
+  .container {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-rows: 40% 10% 50%;
+    grid-template-columns: 70% 10% 10% 10%;
+    grid-template-areas: 
+      "header header header header"
+      "main main main main"
+      "sidebarA sidebarB sidebarB sidebarB";
+  }
+  
