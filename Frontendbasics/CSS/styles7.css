@@ -1,27 +1,124 @@
-  .itemA {
+.itemA {
     grid-area: header;
-    background-color: #f58d0e;
+    background-color: white;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    display: grid;
+    grid-template-columns: repeat(3, 33.33%); 
+    grid-template-rows: 50% 50%;
+    grid-template-areas: 
+    "squareA squareA squareA"
+    "squareA squareA squareA";
   }
-  .item-b {
+  .itemB {
     grid-area: main;
+    background-color: green;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    display: grid;
+    height: auto;
+    grid-template-columns: repeat(1, 100%); 
+    grid-template-rows: 100%;
+    grid-template-areas: 
+    "squareB squareB squareB"
   }
-  .item-c {
-    grid-area: sidebar;
+  
+  .itemCFooterA {
+    grid-area: footerA;
+    background-color: brown;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+  
   }
-  .item-d {
-    grid-area: footer;
+  .itemCFooterB {
+    grid-area: footerB;
+    display: grid;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+
+    grid-template-columns: repeat(2, 50%); 
+    grid-template-rows: 40% 40% 20%;
+    grid-template-areas: 
+    "itemCFooterB-square itemCFooterB-square"
+    "itemCFooterB-square . ."
+    ". . ."
   }
+  .squareA {
+    background-color: purple;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    width: 100%;
+    height: auto;
+  }
+  .squareB {
+    background-color: purple;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    width: 100%;
+    height: auto;
+  }
+  .squareB {
+    background-color: red;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+  }
+  .squareC {
+    background-color: red;
+    border-style: solid;
+    border-color: #000000;
+    border-width: 3px;
+    width: 100%;
+    height: auto;
+
+    
+  }
+
+  
+
+  
+  .squareD{
+    background-color: red;
+    height: auto;
+    width: auto;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+  }
+  .squareE{
+    background-color: red;
+    height: auto;
+    width: auto;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+  }
+  .itemCFooterB-square{
+    grid-area: "itemCFooterB-square";
+    background-color: purple;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    width: auto;
+    height: auto;
+  }
+ 
   
   .container {
     height: 100vh;
     width: 100vw;
     display: grid;
     grid-template-columns: 33.33% 33.33% 33.33%;
-    grid-template-rows: 25% 25% 25% 25%;
-    grid-template-rows: auto;
+    grid-template-rows: 30% 30% 10% 30%;
     grid-template-areas: 
       "header header header"
       "header header header"
-      "main main sidebar"
-      "footer footer footer";
+      "main main main "
+      "footerA footerB footerB";
   }
