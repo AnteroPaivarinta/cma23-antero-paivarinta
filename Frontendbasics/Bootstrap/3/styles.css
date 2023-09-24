@@ -1,0 +1,63 @@
+
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.box {
+  margin-top: 20%;
+  display: flex;
+  height: 40%;
+  width: 100%;
+  position: relative;
+  flex-direction: row;
+  justify-content: center; /* Keskitä elementit vaakasuunnassa */
+}
+
+.squareBox {
+  height: 60%;
+  width: 100%;
+}
+
+.text1, .text2 {
+  position: absolute;
+}
+
+.text1 {
+  color: purple; /* Taustaväri ensimmäiselle tekstille */
+  padding: 2.5px; 
+  font-size: 40px;
+}
+
+.text2 {
+  color: white; /* Taustaväri toiselle tekstille */
+  font-size: 40px;
+}
+
+img {
+  margin: 20px;
+}
+
+.square {
+  width: 100%;
+  height: 40%;
+  border: 4px dashed transparent;
+  border-radius: 5%;
+  border-style: dashed;
+  border-width: 5px;
+  background-color: brown;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  outline-color: purple;
+  outline-width: 10px;
+  outline-style: dashed;
+ 
+
+  
+}
