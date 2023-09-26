@@ -16,9 +16,9 @@ function App() {
   const [text, setText ] = useState('');
 
   const toggleCompletion = (id) => {
+
     const index = arrayData.findIndex((value) => value.id === id);
     const copy = [...arrayData];
-
     let bool = copy[index].complete
     copy[index] = {...copy[index], complete: !bool};
     setArrayData(copy);
@@ -54,18 +54,21 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Assignment 1, 2, 4, 5</h1>
+      <h1>Assignment 1, 2, 4, 5 JA seuravaan kappaleen Assignment 1</h1>
       <hr></hr>
       <div style={{display:'flex' , flexDirection: 'row', height: "69%", width: "100%"}}>
         <div style={{ display:'flex' , flexDirection: 'column', height:  '100vh', width: "30%"}}>
           {array} 
         </div>
         <div style={{ display:'flex' , flexDirection: 'column', height: '100vh', width: '30%', alignContent: 'center'}}>
-          <label>
-            Title: 
-            <input value={text} onChange={(e) => setText(e.target.value)}></input>
+          <label style={{fontWeight: 'bold'}}>
+            Title:  
+            <input placeholder='Type something here..' value={text} onChange={(e) => setText(e.target.value)}></input>
+            <div>
+              <button className='buttonStyle' onClick={() => addTodo(text)}><div style={{fontWeight: 'bold'}}>Submit</div></button>
+            </div>
           </label>
-          <button onClick={() => addTodo(text)}>Submit</button>
+         
          
         </div>
         

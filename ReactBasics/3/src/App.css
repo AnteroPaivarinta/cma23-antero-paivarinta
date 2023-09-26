@@ -38,3 +38,28 @@
 }
 
 
+input {
+  border-radius: 7px;
+  border-color: green;
+  border-width: 3px;
+  background-color: antiquewhite;
+}
+
+label {
+  font-weight: bold;
+
+}
+
+.buttonStyle {
+  background-color: green;
+  border-width: 2px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+
+}
+
+

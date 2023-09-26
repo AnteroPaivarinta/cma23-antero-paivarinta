@@ -1,12 +1,21 @@
+import './TodoNote.css';
+
+
 const TodoNote = (props) => {
     return(
-    <div key={props.value.id} style={{backgroundColor: 'purple', width: "30%", height: "100px", margin: 10, display: 'flex', flexDirection: 'row'}}>
-        <input onClick={() => props.toggleCompletion(props.value.id)} checked={props.value.complete} type='checkbox'></input>
-        <div key = {props.value.id}>{props.value.text} </div>
-        <label>
-          <input onClick={() => props.remove(props.value, props.index)} type="checkbox" checked={false}  />
-          {props.value.remove === true && <div style={{margin: -15, color:'red', fontSize: 10}}> X</div>} 
-        </label>
+    <div className='TodoNote' key={props.value.id}>
+            <div style={{display: 'flex', flexDirection: 'row', alignSelf: 'flex-end', margin: 10}}>
+                <input onClick={() => props.remove(props.value, props.index)} type="checkbox" checked={false}  />
+                    {props.value.remove === true && <div style={{margin: -15, color:'red', fontSize: 10}}> X</div>} 
+            </div>
+           
+            <div style={{display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'center'}}>
+                    <input className='input' onClick={() => props.toggleCompletion(props.value.id)} checked={props.value.complete} type='checkbox'></input>
+                    <div key = {props.value.id}>{props.value.text} </div>
+            </div>
+           
+           
+        
       </div>
     )
 }
