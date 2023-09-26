@@ -2,8 +2,8 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3001; 
 const fs = require('fs');
+const cors = require('cors');
 const arr = [];
-
 fs.readFile('notes-db.json', 'utf8', (err, data) => {
     if (err) {
       console.error('Virhe luettaessa JSON-tiedostoa:', err);
@@ -14,6 +14,7 @@ fs.readFile('notes-db.json', 'utf8', (err, data) => {
         arr.push(todo);
     });
   });
+app.use(cors());
 app.get('/notes', (req, res) => {
   res.json((arr));
 });

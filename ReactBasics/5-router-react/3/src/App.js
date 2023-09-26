@@ -3,16 +3,11 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import TodoNote from './TodoNote';
 import { v4 as uuidv4 } from 'uuid';
+import axios from 'axios';
+
 function App() {
-  const defaultTodos = [
-    {id: 1, text: 'Buy potatoes', complete: false},
-    {id: 2, text: 'Make food', complete: false},
-    {id: 3, text: 'Exercise', complete: false},
-    {id: 4, text: 'Do the dishes', complete: false},
-    {id: 5, text: 'Floss the teeth', complete: false},
-    {id: 6, text: 'Play videogames', complete: true},
-  ]
-  const [arrayData, setArrayData ] = useState(defaultTodos.map((value) =>  ({...value, remove: false })));
+ 
+  const [arrayData, setArrayData ] = useState();
   const [text, setText ] = useState('');
 
   const toggleCompletion = (id) => {
@@ -29,26 +24,32 @@ function App() {
       id: uuidv4(),
       complete: false,
       text: text,
+    
     }])
   }
 
 
   const remove = (value, index) => {
     const id = value.id
-    const copy = [...arrayData];
-    let bool = copy[index].remove
-    copy[index] = {...copy[index], remove: !bool};
-    const filtered = copy.filter((value) => value.id !== id);
-    console.log('Filtered', filtered)
-    setArrayData(filtered);
+    axios.delete("http://localhost:3001/delete/"+id).then(response => {
+      console.log('RES', response)
+    });
   }
   
   useEffect(() => {
-    console.log('array', arrayData)
+    const fetchData  = async() => {
+      await axios.get("http://localhost:3001/notes")
+      .then(function (response) {
+        console.log('Response', response.data)
+        setArrayData(response.data.map((value) =>  ({...value, remove: false })))
+      });
+    }
+    fetchData();
+    
   }, [arrayData]);
  
 
-  const array = arrayData.map((value, index) => 
+  const array = arrayData?.map((value, index) => 
     <TodoNote index={index} value={value} remove={remove} toggleCompletion={toggleCompletion} />
   )
 
