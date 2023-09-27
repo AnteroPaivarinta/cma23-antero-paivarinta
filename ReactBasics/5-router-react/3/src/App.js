@@ -20,12 +20,16 @@ function App() {
   }
 
   const addTodo = (text) => {
-    setArrayData([...arrayData, {
+    const ob = {
       id: uuidv4(),
       complete: false,
       text: text,
     
-    }])
+    }
+    axios.post("http://localhost:3001/notes", ob).then(response => {
+      console.log('RES', response)
+    });
+  
   }
 
 

@@ -15,12 +15,14 @@ fs.readFile('notes-db.json', 'utf8', (err, data) => {
     });
   });
 app.use(cors());
+app.use(express.json())
 app.get('/notes', (req, res) => {
   res.json((arr));
 });
 
 app.post('/notes', (req, res) => {
-    arr.push(req.body.data)
+    console.log('REQ', req.body)
+    arr.push(req.body)
     res.send('Post succesful');
   });
 
