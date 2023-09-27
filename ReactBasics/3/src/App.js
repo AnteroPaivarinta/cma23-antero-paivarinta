@@ -68,10 +68,7 @@ function App() {
               <button className='buttonStyle' onClick={() => addTodo(text)}><div style={{fontWeight: 'bold'}}>Submit</div></button>
             </div>
           </label>
-         
-         
         </div>
-        
       </div>
     </div>
   );

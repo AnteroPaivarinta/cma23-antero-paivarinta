@@ -1,0 +1,14 @@
+C:\code\cma23-antero-paivarinta\csharp\7-classes-and-objects\obj\Debug\net7.0\7-classes-and-objects.GeneratedMSBuildEditorConfig.editorconfig
+C:\code\cma23-antero-paivarinta\csharp\7-classes-and-objects\obj\Debug\net7.0\7-classes-and-objects.AssemblyInfoInputs.cache
+C:\code\cma23-antero-paivarinta\csharp\7-classes-and-objects\obj\Debug\net7.0\7-classes-and-objects.AssemblyInfo.cs
+C:\code\cma23-antero-paivarinta\csharp\7-classes-and-objects\obj\Debug\net7.0\7-classes-and-objects.csproj.CoreCompileInputs.cache
+C:\code\cma23-antero-paivarinta\csharp\7-classes-and-objects\bin\Debug\net7.0\7-classes-and-objects.exe
+C:\code\cma23-antero-paivarinta\csharp\7-classes-and-objects\bin\Debug\net7.0\7-classes-and-objects.deps.json
+C:\code\cma23-antero-paivarinta\csharp\7-classes-and-objects\bin\Debug\net7.0\7-classes-and-objects.runtimeconfig.json
+C:\code\cma23-antero-paivarinta\csharp\7-classes-and-objects\bin\Debug\net7.0\7-classes-and-objects.dll
+C:\code\cma23-antero-paivarinta\csharp\7-classes-and-objects\bin\Debug\net7.0\7-classes-and-objects.pdb
+C:\code\cma23-antero-paivarinta\csharp\7-classes-and-objects\obj\Debug\net7.0\7-classes-and-objects.dll
+C:\code\cma23-antero-paivarinta\csharp\7-classes-and-objects\obj\Debug\net7.0\refint\7-classes-and-objects.dll
+C:\code\cma23-antero-paivarinta\csharp\7-classes-and-objects\obj\Debug\net7.0\7-classes-and-objects.pdb
+C:\code\cma23-antero-paivarinta\csharp\7-classes-and-objects\obj\Debug\net7.0\7-classes-and-objects.genruntimeconfig.cache
+C:\code\cma23-antero-paivarinta\csharp\7-classes-and-objects\obj\Debug\net7.0\ref\7-classes-and-objects.dll

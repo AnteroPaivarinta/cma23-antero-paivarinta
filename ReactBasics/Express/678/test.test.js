@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = require('./userRouter.js'); // Tuo Express-sovellus tiedostosta app.js (tai vastaava)
+const app = require('./userRouter'); // Tuo Express-sovellus tiedostosta app.js (tai vastaava)
 
 describe('Server', () => {
   it('register', async () => {
