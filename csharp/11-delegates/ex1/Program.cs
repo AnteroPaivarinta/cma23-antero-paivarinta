@@ -17,7 +17,7 @@
             {
                 Console.WriteLine("Increase Temperature ");
             }
-            PrintDelegate print;
+            PrintDelegate print = ReleaseWater;
 
 
             while (true)
