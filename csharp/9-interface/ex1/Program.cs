@@ -1,43 +1,29 @@
 ﻿class Program
 {
-    public interface IInfo
+    class Message
     {
-        string InfoText { get; set; }
-        void PrintInfo();
-    }
-
-    public class Product : IInfo
-    {
-        public string InfoText { get; set; }
-
-        public void PrintInfo()
+        public static int TotalMessages;
+        public static string LastMessage;
+        public string MessageText;
+        public Message(string a)
         {
-            Console.WriteLine($"Product Info: {InfoText}");
+            this.MessageText = a;
+            TotalMessages++;
+            LastMessage = a;
+        }
+
+
+
+        static void Main(string[] args)
+        {
+            List<Message> allMessages = new List<Message>();
+            for (int i = 0; i < 5; i++)
+            {
+                Message mese = new Message("j");
+                allMessages.Add(mese);
+            }
+            Console.WriteLine(Message.TotalMessages);
         }
     }
 
-    public class Category : IInfo
-    {
-        public string InfoText { get; set; }
-
-        public void PrintInfo()
-        {
-            Console.WriteLine($"Category Info: {InfoText}");
-        }
-    }
-    static void Main(string[] args)
-    {
-        List<IInfo> lista = new List<IInfo>();
-        Product a = new Product();
-        Category b = new Category();
-        a.InfoText = "BLAALBLLAAA";
-        b.InfoText = "JOOOOOO";
-        lista.Add(a);
-        lista.Add(b);
-        foreach(IInfo item in lista)
-        {
-            item.PrintInfo();
-        }
-
-    }
 }
