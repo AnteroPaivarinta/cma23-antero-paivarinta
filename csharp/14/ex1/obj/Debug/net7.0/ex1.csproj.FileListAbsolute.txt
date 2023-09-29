@@ -1,0 +1,14 @@
+C:\code\cma23-antero-paivarinta\csharp\14\ex1\bin\Debug\net7.0\ex1.exe
+C:\code\cma23-antero-paivarinta\csharp\14\ex1\bin\Debug\net7.0\ex1.deps.json
+C:\code\cma23-antero-paivarinta\csharp\14\ex1\bin\Debug\net7.0\ex1.runtimeconfig.json
+C:\code\cma23-antero-paivarinta\csharp\14\ex1\bin\Debug\net7.0\ex1.dll
+C:\code\cma23-antero-paivarinta\csharp\14\ex1\bin\Debug\net7.0\ex1.pdb
+C:\code\cma23-antero-paivarinta\csharp\14\ex1\obj\Debug\net7.0\ex1.GeneratedMSBuildEditorConfig.editorconfig
+C:\code\cma23-antero-paivarinta\csharp\14\ex1\obj\Debug\net7.0\ex1.AssemblyInfoInputs.cache
+C:\code\cma23-antero-paivarinta\csharp\14\ex1\obj\Debug\net7.0\ex1.AssemblyInfo.cs
+C:\code\cma23-antero-paivarinta\csharp\14\ex1\obj\Debug\net7.0\ex1.csproj.CoreCompileInputs.cache
+C:\code\cma23-antero-paivarinta\csharp\14\ex1\obj\Debug\net7.0\ex1.dll
+C:\code\cma23-antero-paivarinta\csharp\14\ex1\obj\Debug\net7.0\refint\ex1.dll
+C:\code\cma23-antero-paivarinta\csharp\14\ex1\obj\Debug\net7.0\ex1.pdb
+C:\code\cma23-antero-paivarinta\csharp\14\ex1\obj\Debug\net7.0\ex1.genruntimeconfig.cache
+C:\code\cma23-antero-paivarinta\csharp\14\ex1\obj\Debug\net7.0\ref\ex1.dll
