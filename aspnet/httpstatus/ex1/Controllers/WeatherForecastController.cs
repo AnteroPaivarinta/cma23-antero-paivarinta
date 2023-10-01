@@ -1,6 +1,7 @@
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ex1.Controllers
+namespace ex3.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -19,15 +20,19 @@ namespace ex1.Controllers
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
+        public IActionResult Get()
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            List<string> a = new List<string>();
+            a.Add("jep");
+            if(a.Count() > 1)
             {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+                return Ok(a);
+            }
+            else
+            {
+                return BadRequest(a);
+            }
+            
         }
     }
 }
