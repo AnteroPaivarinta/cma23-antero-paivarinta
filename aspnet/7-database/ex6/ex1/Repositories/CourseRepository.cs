@@ -19,18 +19,5 @@ namespace ex1.Repositories
             _context.courses.Add(course);
             _context.SaveChanges();
         }
-        public void UpdateCourse(int id, Course newCourse)
-        {
-            Course course = GetCourse(id);
-            course.credits = newCourse.credits;
-            course.name = course.name;
-            _context.courses.Update(course);
-            _context.SaveChanges();
-        }
-        public void DeleteCourse(int id)
-        {
-            _context.courses.Remove(GetCourse(id));
-            _context.SaveChanges();
-        }
     }
 }
