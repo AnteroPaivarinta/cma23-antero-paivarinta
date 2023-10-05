@@ -2,19 +2,19 @@
 {
     public class Lecture
     {
-        int Id, DateTime;
+        int Id;
+        int DateTime;
         int StartTime;
         int Length;
         Course Course;
         int CourseId;
-        public Lecture(int a, int b, int c, int length, Course course, int courseId)
+        public Lecture(int _id, int _startTime, int _length, Course _course, int _courseId)
         {
-            this.Id = a;
-            this.StartTime = b;
-            this.Length = c;
-            this.Length = length;
-            this.Course = course;
-            this.CourseId = courseId;
+            Id = _id;
+            StartTime = _startTime;
+            Length = _length;
+            Course = _course;
+            CourseId = _courseId;
         }
     }
 }

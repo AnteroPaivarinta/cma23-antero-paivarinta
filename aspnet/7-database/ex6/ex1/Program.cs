@@ -2,6 +2,7 @@ using ex1.Services;
 using ex1.Repositories;
 using ex1.Models;
 using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddSingleton<ICourseRepository, CourseRepository>();

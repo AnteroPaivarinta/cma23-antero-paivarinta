@@ -10,50 +10,44 @@ namespace ex1.Controllers
     public class ValuesController : ControllerBase
     {
         public List<Course> listaCourses;
-        public ValuesController()
+        CourseRepository courseRepository;
+        public ValuesController (CourseRepository _courseRepository)
         {
-            Course aa = new Course(1, "joo", 5); 
-            Course bb = new Course(2, "joo1", 4); 
-
-            this.listaCourses = new List<Course>
-            {
-                aa,
-                bb
-            };
+            courseRepository = _courseRepository;
         }
         [HttpGet("courses/{id}")]
         public Course Get(int id)
         {
-            return this.listaCourses.ElementAt(id);
+            return courseRepository.GetCourse(id);
 
         }
 
         [HttpGet("courses")]
         public List<Course> Get()
         {
-            return CourseRepository.Instance.GetCourses();
+            return courseRepository.GetCourses();
 
         }
         [HttpPost]
         public Course Post([FromBody] Course a)
         {
-            this.listaCourses.Add(a);
+            courseRepository.AddCourse(a);
             return a;
-
         }
 
         [HttpPut("courses/{id}")]
-        public List<Course> Put(int id, [FromBody] Course course)
+        public IActionResult Put(int id, [FromBody] Course course)
         {
-            if(listaCourses.FirstOrDefault((item) => item.id == id) == null)
+            var existingCourse = listaCourses.FirstOrDefault(item => item.id == id);
+            if (existingCourse == null)
             {
-                return NotFound(this.listaCourses);
+                return NotFound();
             }
             else
             {
-                List<Course> updatedList = this.listaCourses.Select(c => c.id != id ? c : course).ToList();
-                this.listaCourses = updatedList;
-                return this.listaCourses;
+                List<Course> updatedList = listaCourses.Select(c => c.id != id ? c : course).ToList();
+                listaCourses = updatedList;
+                return Ok(updatedList); // Return a 200 OK status along with the updated list
             }
         }
 
@@ -73,7 +67,7 @@ namespace ex1.Controllers
 
             if (existingCourse == null)
             {
-                return NotFound(this.listaCourses);
+                return NotFound(courseRepository.courses);
             }
             patchDocument.ApplyTo(existingCourse, ModelState);
 
@@ -82,7 +76,7 @@ namespace ex1.Controllers
                 return BadRequest(ModelState);
             }
 
-            return this.listaCourses;
+            return courseRepository.courses;
         }
     }
 }
