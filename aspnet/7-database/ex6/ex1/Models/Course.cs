@@ -6,8 +6,8 @@ namespace ex1.Models
     public class Course
     {
         public int id { get; set; }
-        public string name;
-        public int credits;
+        public string name { get; set; }
+        public int credits { get; set; }
         public ICollection<Lecture> Lectures;
         protected void OnModelCreating(ModelBuilder modelBuilder)
         {
