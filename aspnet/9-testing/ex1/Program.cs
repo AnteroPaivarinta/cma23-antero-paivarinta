@@ -5,8 +5,8 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
-builder.Services.AddDbContext<CoursesContext>(options => options.UseNpgsql(@"Server=PostgreSQL 16;Host=localhost;Port=5432;Username=postgres;Password='';Database=testi"));
 builder.Services.AddSingleton<ICourseRepository, CourseRepository>();
+builder.Services.AddDbContext<CoursesContext>(options => options.UseNpgsql(@"Server=PostgreSQL 16;Host=localhost;Port=5432;Username=postgres;Password='';Database=testi"));
 builder.Services.AddScoped<ICourseRepository, CourseRepository>();
 builder.Services.AddControllers().AddNewtonsoftJson();
 builder.Services.AddEndpointsApiExplorer();
