@@ -5,13 +5,17 @@
         public int id;
         public string name;
         public int credits;
-        public ICollection<Lecture> Lectures;
+       // public ICollection<Lecture> Lectures;
 
         public Course(int id, string name, int credits)
         {
             this.id = id;
             this.name = name;
             this.credits = credits;
+        }
+        public Course()
+        {
+           
         }
     }
 }
