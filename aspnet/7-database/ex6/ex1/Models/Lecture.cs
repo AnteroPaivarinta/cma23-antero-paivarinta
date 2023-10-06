@@ -2,19 +2,16 @@
 {
     public class Lecture
     {
-        int Id;
-        int DateTime;
-        int StartTime;
-        int Length;
-        Course Course;
-        int CourseId;
-        public Lecture(int _id, int _startTime, int _length, Course _course, int _courseId)
+        public int Id { get; set; }
+        public int DateTime { get; set; }
+        public int StartTime { get; set; }
+        public int Length { get; set; }
+        public Course Course { get; set; }
+        public int CourseId { get; set; }
+        ICollection<Lecture> Lectures { get; set; }
+        public Lecture()
         {
-            Id = _id;
-            StartTime = _startTime;
-            Length = _length;
-            Course = _course;
-            CourseId = _courseId;
+         
         }
     }
 }
