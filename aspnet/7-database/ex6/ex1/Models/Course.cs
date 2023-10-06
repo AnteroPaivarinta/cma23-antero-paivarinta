@@ -21,5 +21,9 @@ namespace ex1.Models
             this.name = name;
             this.credits = credits;
         }
+        public Course()
+        {
+
+        }
     }
 }
