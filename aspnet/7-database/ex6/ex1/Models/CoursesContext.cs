@@ -8,7 +8,7 @@ namespace ex1.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Course>().HasData(
-                    new Course(0, "joo", 3),
+                    new Course(2, "joo", 3),
                     new Course(1, "joo3", 3)
                 ) ;
         }
