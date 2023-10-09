@@ -1,0 +1,59 @@
+<html>
+<head>
+    <title>Post Wall</title>
+</head>
+<body>
+    <h1>Post Wall</h1>
+    <form id="postForm">
+        <label for="userName">Name:</label>
+        <input type="text" id="userName" required><br>
+        <label for="userPost">Post:</label>
+        <textarea id="userPost" required></textarea><br>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="posts"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const postForm = document.getElementById('postForm');
+            const userNameInput = document.getElementById('userName');
+            const userPostInput = document.getElementById('userPost');
+            const postsContainer = document.getElementById('posts');
+
+            postForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const userName = userNameInput.value.trim();
+                const userPost = userPostInput.value.trim();
+
+                if (userName === '' || userPost === '') {
+                    window.alert('Please enter both name and post.');
+                    return;
+                }
+
+                const postElement = document.createElement('div');
+                postElement.className = 'post';
+
+                const postHeader = document.createElement('h2');
+                postHeader.textContent = userName;
+
+                const postContent = document.createElement('p');
+                postContent.textContent = userPost;
+
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Delete';
+                deleteButton.addEventListener('click', function() {
+                    postsContainer.removeChild(postElement);
+                });
+
+                postElement.appendChild(postHeader);
+                postElement.appendChild(postContent);
+                postElement.appendChild(deleteButton);
+                postsContainer.appendChild(postElement);
+                userNameInput.value = '';
+                userPostInput.value = '';
+            });
+        });
+    </script>
+</body>
+</html>

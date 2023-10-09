@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>Second Counter</title>
+</head>
+<body>
+    <p id="secondCounter">0 seconds</p>
+
+    <script>
+        // Function to update the second counter
+        function updateSecondCounter() {
+            let seconds = 0;
+            const secondCounter = document.getElementById('secondCounter');
+
+            // Set up an interval to increment the seconds
+            const intervalId = setInterval(function() {
+                seconds++;
+                secondCounter.textContent = seconds + " seconds";
+            }, 1000); // 1000 milliseconds = 1 second
+        }
+
+        // Call the function when the page is loaded
+        window.onload = updateSecondCounter;
+    </script>
+</body>
+</html>
