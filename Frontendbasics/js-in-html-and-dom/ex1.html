@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student List</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <button id="toggleButton">Toggle students</button>
+    <div id="studentTableContainer"></div>
+
+    <script>
+        const students = [
+            { name: "Sami", score: 24.75 },
+            { name: "Heidi", score: 20.25 },
+            { name: "Jyrki", score: 27.5 },
+            { name: "Helinä", score: 26.0 },
+            { name: "Maria", score: 17.0 },
+            { name: "Yrjö", score: 14.5 }
+        ];
+
+        const toggleButton = document.getElementById("toggleButton");
+        const studentTableContainer = document.getElementById("studentTableContainer");
+
+        let studentsTable = null;
+
+        toggleButton.addEventListener("click", () => {
+            if (studentsTable) {
+                studentTableContainer.removeChild(studentsTable);
+                studentsTable = null;
+            } else {
+                studentsTable = createStudentsTable(students);
+                studentTableContainer.appendChild(studentsTable);
+            }
+        });
+
+        function createStudentsTable(studentData) {
+            const table = document.createElement("table");
+            const headerRow = table.insertRow(0);
+
+            const nameHeader = headerRow.insertCell(0);
+            nameHeader.innerHTML = "Name";
+
+            const scoreHeader = headerRow.insertCell(1);
+            scoreHeader.innerHTML = "Score";
+
+            for (let i = 0; i < studentData.length; i++) {
+                const student = studentData[i];
+                const row = table.insertRow(i + 1);
+
+                const nameCell = row.insertCell(0);
+                nameCell.innerHTML = student.name;
+
+                const scoreCell = row.insertCell(1);
+                scoreCell.innerHTML = student.score;
+            }
+
+            return table;
+        }
+    </script>
+</body>
+</html>

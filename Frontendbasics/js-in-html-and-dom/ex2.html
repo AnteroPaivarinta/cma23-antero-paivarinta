@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student List</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+   <h1>Books:</h1>
+   <h2>Add new book:</h2>
+   <input placeholder="Book name" id="bookName"/>
+   <input placeholder="Page count" id="pageCount"/>
+   <button id="addBookButton" style="background-color: black; border-radius: 3px; color: whitesmoke; font-size: 20px; ">Add book</button>
+   <div id="bookTableContainer"></div>
+
+    <script>
+         const books = [
+            { name: "kirja1", pages: 30 },
+            { name: "kirja2", pages: 31 },
+            { name: "kirja3", pages: 32 },
+            
+        ];
+        let bookTableContainer = document.getElementById("bookTableContainer");
+        let booksTable = createBooksTable(books);
+        bookTableContainer.appendChild(booksTable);
+
+       
+        let addBookButton = document.getElementById('addBookButton');
+
+        addBookButton.addEventListener("click", () => {
+            console.log('clicked')
+            bookTableContainer.removeChild(booksTable);
+            bookTable = null;
+
+            let bookName = document.getElementById("bookName").value
+            let pageCount =  document.getElementById("pageCount").value
+
+            books.push({name: bookName, pages: pageCount})
+            booksTable = createBooksTable(books);
+            bookTableContainer.appendChild(booksTable);
+           
+        });
+        function createBooksTable(bookData) {
+            console.log(bookData.length)
+            const table = document.createElement("table");
+            const headerRow = table.insertRow(0);
+
+            const nameHeader = headerRow.insertCell(0);
+            nameHeader.innerHTML = "Name";
+
+            const scoreHeader = headerRow.insertCell(1);
+            scoreHeader.innerHTML = "Pages";
+
+            for (let i = 0; i < bookData.length; i++) {
+                const book = bookData[i];
+                const row = table.insertRow(i + 1);
+
+                const nameCell = row.insertCell(0);
+                nameCell.innerHTML = book.name;
+
+                const scoreCell = row.insertCell(1);
+                scoreCell.innerHTML = book.pages;
+            }
+
+            return table;
+        }
+       
+    </script>
+</body>
+</html>
