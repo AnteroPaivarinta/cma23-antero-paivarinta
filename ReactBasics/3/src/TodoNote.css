@@ -15,10 +15,9 @@
     flex-direction: column;
 }
 .input {
+
     border-radius: 50px;
     background-color: black;
-    
     border-width: 3px;
     border-style: solid;
-
 }
