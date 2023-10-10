@@ -1,0 +1,21 @@
+1. 
+SELECT *
+FROM loans
+WHERE loan_date < '2000-03-01';
+
+
+2. SELECT *
+FROM loans
+WHERE returned = 1;
+
+3. SELECT user.full_name, loans.loan_date
+FROM user
+JOIN loans ON user.id = loans.user_id
+WHERE user.id = 1;
+
+4.
+
+SELECT book.name, book.release_year, language.name
+FROM book
+JOIN language ON book.language_id = language.id
+WHERE book.release_year > 1960;
