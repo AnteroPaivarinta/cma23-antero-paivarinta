@@ -5,32 +5,39 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { FilterList } from '../components/filterList';
 import { IFilterItem, IProduct } from '../types';
 import ProductsList from '../components/productsList';
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
 
-function Main() {
-
-  const data: IFilterItem[] = [
-   {name: 'Vaatteet', },
-   {name: 'Tietokoneet'},
-   {name: 'Televisiot'},
-   {name: 'Tulostimet'}, 
-   {name: 'Kuulokkeet'},
-   {name: 'Pöydät'},
-   {name: 'Tuolit'},
-   {name: 'Kaikki'}
-  ];
+const Main = () => {
+  const dispatch = useDispatch();
   const [filter, setFilter] = useState('Kaikki');
-  const products: IProduct[] = [{name: 'Joku tuoli', price: 30, category: 'Tuolit'}, {category: 'Vaatteet', name: 'neule', price: 30}]
-  const cart: IProduct[] = [];
+  const products: IProduct[] = [{name: 'Joku tuoli', price: 30, category: 'Tuolit'}, {category: 'Vaatteet', name: 'neule', price: 30}];
+
   const onSaveFilter = (filter: string) => {
     setFilter(filter)
-  }
-  const addToCart = (item: IProduct) => {
-    cart.push(item);
-  }
-  useEffect(() => {
+  };
 
-  });
+  const addToCart = (item: IProduct) => {
+    dispatch({
+      type: 'NEW_PRODUCT',
+      payload: {
+        name: item.name,
+        category: item.category,
+        price: item.price
+      }
+    })
+  }
+  const data: IFilterItem[] = [
+    {name: 'Vaatteet', },
+    {name: 'Tietokoneet'},
+    {name: 'Televisiot'},
+    {name: 'Tulostimet'}, 
+    {name: 'Kuulokkeet'},
+    {name: 'Pöydät'},
+    {name: 'Tuolit'},
+    {name: 'Kaikki'}
+   ];
+  
   return (
     <div className="container">
       <div className='item-a'>
