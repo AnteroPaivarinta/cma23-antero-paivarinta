@@ -16,10 +16,16 @@
 .item-c {
   grid-area: sidebar;
   background-color: green;
+  height: 100%;
+  width: 100%;
 }
 .item-d {
   grid-area: footer;
   background-color: aqua;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
 }
 
 .container {
@@ -32,5 +38,16 @@
     "footer footer footer footer";
   height: 100vh;
   width: 100vw;
-  
+}
+
+.container-B {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 10% 80% 10%;
+  grid-template-areas: 
+    "header header header header"
+    "main sidebar sidebar sidebar"
+    "footer footer footer footer";
+  height: 100vh;
+  width: 100vw;
 }

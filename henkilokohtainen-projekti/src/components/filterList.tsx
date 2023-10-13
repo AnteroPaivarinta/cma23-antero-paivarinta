@@ -8,7 +8,7 @@ export const FilterList = (props: IFilterListProps) => {
         <div className="FilterList">
             {data.map((value, index) => {
                 return(
-                        <FilterListItem key={index} data={value}/>
+                    <FilterListItem key={index} data={value} onSaveFilter={props.onSaveFilter}/>
                 )
             })}
         </div>

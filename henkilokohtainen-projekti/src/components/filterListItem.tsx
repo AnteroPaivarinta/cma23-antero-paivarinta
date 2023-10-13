@@ -5,7 +5,7 @@ import '../styles/FilterListItem.css';
 export const FilterItem = (props: IFilterListItemProps) => {
     const item: IFilterItem = props.data;
     return (
-        <div className="FilterListItem">
+        <div onClick={() => props.onSaveFilter(item.name)} className="FilterListItem">
             {item.name} 
         </div>
     )
