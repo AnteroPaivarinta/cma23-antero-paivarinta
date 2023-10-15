@@ -4,7 +4,10 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import Button from 'react-bootstrap/Button';
+
+
 const Cart = () => {
+  
   const products: any = useSelector(state => state);
   const total: number = products.map((val:any) => val.price).reduce((accumulator:any, currentValue:any) => accumulator + currentValue, 0);
   return (
