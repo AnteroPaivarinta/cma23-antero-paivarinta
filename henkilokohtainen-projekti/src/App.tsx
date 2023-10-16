@@ -9,7 +9,7 @@ import Main from './views/main';
 import Cart from './views/cart';
 
 function App() {
-
+  // Routerointi, Varastopaikka(näkyy eri tavalla), ASPNET tietokannan suhteen, Tietotkantataulu , Productille kaksi iD:tä
   return (
     <BrowserRouter>
       <Routes >
