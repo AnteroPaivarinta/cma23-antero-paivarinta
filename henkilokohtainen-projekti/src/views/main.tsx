@@ -3,15 +3,20 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { FilterList } from '../components/filterList';
-import { IFilterItem, IProduct } from '../types';
+import { IFilterItem, IMainProps, IProduct } from '../types';
 import ProductsList from '../components/productsList';
-import { Link } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
+import Modal from 'react-bootstrap/Modal';
+import { Button } from 'react-bootstrap';
 
-const Main = () => {
+const Main = (props: IMainProps) => {
+
   const dispatch = useDispatch();
   const [filter, setFilter] = useState('Kaikki');
-  const products: IProduct[] = [{name: 'Joku tuoli', price: 30, category: 'Tuolit'}, {category: 'Vaatteet', name: 'neule', price: 30}];
+  const { param } = useParams();
+  const navigate = useNavigate();
+  const products: IProduct[] = [{name: 'Joku tuoli', id: '23', price: 30, category: 'Tuolit'}, {category: 'Vaatteet', id: '24' ,name: 'neule', price: 30}];
 
   const onSaveFilter = (filter: string) => {
     setFilter(filter)
@@ -26,6 +31,10 @@ const Main = () => {
         price: item.price
       }
     })
+  }
+
+  const onHandleClose = () => {
+    navigate("/main");
   }
   const data: IFilterItem[] = [
     {name: 'Vaatteet', },
@@ -44,19 +53,35 @@ const Main = () => {
           <h1 style={{color: 'white', fontSize: 30, padding: 15, alignSelf: 'center'}}>Anteron verkkokauppa</h1>
           <div style={{alignSelf: 'center', padding: 10}}>
             <Link to="/cart"> <FontAwesomeIcon color='white' fontSize={30} icon={faCartShopping}/> </Link>
-            <Link style={{ textDecoration: 'none', backgroundColor: 'white', borderRadius: 10, fontSize: 20 ,color: 'red'}} to="/main">Shopping</Link>
+            <Link style={{ textDecoration: 'none', backgroundColor: 'white', borderRadius: 10, fontSize: 20, color: 'red'}} to="/main">Shopping</Link>
           </div>
       </div>
       <div className='item-b'>
         <FilterList data={data} onSaveFilter={onSaveFilter}/>
       </div>
       <div className='item-c'>
-        <ProductsList addToCart={addToCart} data={(filter === 'Kaikki' ? products : products.filter((value:IProduct) => value.category === filter))} />
+        <ProductsList 
+          addToCart={addToCart} 
+          data={(filter === 'Kaikki' ? products : products.filter((value:IProduct) => value.category === filter))} 
+        /> 
       </div>
+     
       <div className='item-d'>
          Anteron verkkokauppa, Y-4543, Tampere
       </div>
+      <Modal show={param ? true : false} onHide={onHandleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>{products.find((value) => value.id === param)?.name}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body> Hinta: {products.find((value) => value.id === param)?.price}</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={onHandleClose}>
+            Sulje
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
+    
   );
 }
 

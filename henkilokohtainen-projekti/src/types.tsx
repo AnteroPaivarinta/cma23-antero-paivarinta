@@ -1,6 +1,5 @@
 export interface IFilterItem {
     name: string,
-
 }
 
 export interface IFilterListProps {
@@ -21,13 +20,17 @@ export interface IProductsListProps {
 export interface IProductProps {
     data: IProduct,
     addToCart: (item: IProduct) => void;
-
 }
 
 export interface IProduct {
+    id: string,
     name: string,
     price: number,
     picture?: any,
     category: string,
+}
+
+export interface IMainProps {
+    value?: string,
 }
 

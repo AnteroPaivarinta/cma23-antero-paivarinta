@@ -13,9 +13,10 @@ function App() {
   return (
     <BrowserRouter>
       <Routes >
-          <Route index element={<Main />} />
-          <Route path="main" element={<Main />} />
-          <Route path="cart" element={<Cart />} />
+        <Route index element={<Main />} />
+        <Route path="main" element={<Main/>} />
+        <Route path="main/:param" element={<Main/>} />
+        <Route path="cart" element={<Cart />} />
       </Routes>
     </BrowserRouter>
   );
