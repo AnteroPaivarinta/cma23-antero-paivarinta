@@ -36,6 +36,10 @@ const Main = (props: IMainProps) => {
   const onHandleClose = () => {
     navigate("/main");
   }
+
+  const onItemClick = (id:string) => {
+    navigate("/main/"+id)
+  }
   const data: IFilterItem[] = [
     {name: 'Vaatteet', },
     {name: 'Tietokoneet'},
@@ -63,6 +67,7 @@ const Main = (props: IMainProps) => {
         <ProductsList 
           addToCart={addToCart} 
           data={(filter === 'Kaikki' ? products : products.filter((value:IProduct) => value.category === filter))} 
+          onItemClick={onItemClick}
         /> 
       </div>
      

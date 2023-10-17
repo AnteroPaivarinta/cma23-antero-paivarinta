@@ -15,11 +15,13 @@ export interface IFilterListItemProps{
 export interface IProductsListProps {
     addToCart: (item: IProduct) => void;
     data: IProduct[],
+    onItemClick:(id: string) => void;
 }
 
 export interface IProductProps {
     data: IProduct,
     addToCart: (item: IProduct) => void;
+    onItemClick:(id: string) => void;
 }
 
 export interface IProduct {

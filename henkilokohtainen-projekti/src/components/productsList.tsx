@@ -7,7 +7,7 @@ export const ProductsList = (props: IProductsListProps) => {
     return (
         <div className="ProductList">
             {data.map((value: IProduct, index:number) => 
-                (<ProductsListItem key={index} data={value}  addToCart={props.addToCart}/>))
+                (<ProductsListItem key={index} data={value}  addToCart={props.addToCart} onItemClick={props.onItemClick}/>))
             }
         </div>
     )
