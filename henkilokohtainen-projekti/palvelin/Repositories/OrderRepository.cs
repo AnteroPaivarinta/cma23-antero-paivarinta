@@ -11,10 +11,11 @@ namespace palvelin.Repositories
             _context = context;
         }
 
-        public Order GetContact(int id) =>
-            _context.Orders.FirstOrDefault(c => c.Id == id);
+        public Order GetProduct(string id ) { 
+            return _context.Orders.FirstOrDefault(c => c.id == id);
+        }
 
-        public List<Order> GetContacts() =>
+        public List<Order> GetProducts() =>
             _context.Orders.ToList();
     }
 }

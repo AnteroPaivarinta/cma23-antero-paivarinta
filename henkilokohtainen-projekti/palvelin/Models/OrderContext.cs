@@ -11,6 +11,5 @@ namespace palvelin.Models
             modelBuilder.Entity<Order>().ToTable("Order");
         }
 
-
     }
 }
