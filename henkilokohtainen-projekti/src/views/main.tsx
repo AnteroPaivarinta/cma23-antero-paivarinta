@@ -58,6 +58,8 @@ const Main = (props: IMainProps) => {
           <div style={{alignSelf: 'center', padding: 10}}>
             <Link to="/cart"> <FontAwesomeIcon color='white' fontSize={30} icon={faCartShopping}/> </Link>
             <Link style={{ textDecoration: 'none', backgroundColor: 'white', borderRadius: 10, fontSize: 20, color: 'red'}} to="/main">Shopping</Link>
+            <Link to="/cart"> Login </Link>
+            <Link to="/main">Register</Link>
           </div>
       </div>
       <div className='item-b'>

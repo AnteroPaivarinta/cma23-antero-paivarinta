@@ -1,4 +1,5 @@
 ﻿using palvelin.Models;
+using palvelin.Repositories;
 
 namespace palvelin.Repositories
 {
@@ -11,11 +12,17 @@ namespace palvelin.Repositories
             _context = context;
         }
 
-        public Order GetProduct(string id ) { 
+        public Order GetProduct(string id) {
             return _context.Orders.FirstOrDefault(c => c.id == id);
         }
 
         public List<Order> GetProducts() =>
             _context.Orders.ToList();
+        public void AddProduct(Product product)  {
+            
+        }
+
+        public void DeleteProduct(string id) { }
+        public void UpdateProduct(int id, Product product) { }  
     }
 }
