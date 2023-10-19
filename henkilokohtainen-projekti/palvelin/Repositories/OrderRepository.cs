@@ -12,17 +12,27 @@ namespace palvelin.Repositories
             _context = context;
         }
 
-        public Order GetProduct(string id) {
-            return _context.Orders.FirstOrDefault(c => c.id == id);
+        public List<Order> GetOrders() =>
+          _context.Orders.ToList();
+        public Order GetOrder(string id) { return _context.Orders.FirstOrDefault(c => c.id == id); }
+
+        public void AddOrder(Order order)
+        {
+            _context.Orders.Add(order);
+            _context.SaveChanges();
         }
 
-        public List<Order> GetProducts() =>
-            _context.Orders.ToList();
-        public void AddProduct(Product product)  {
-            
+        public void DeleteOrder(string id)
+        {
+            _context.Orders.Remove(GetOrder(id));
+            _context.SaveChanges();
         }
 
-        public void DeleteProduct(string id) { }
-        public void UpdateProduct(int id, Product product) { }  
+        public void UpdateOrder(int id, Order order) 
+        {
+           
+            _context.SaveChanges();
+        }
+
     }
 }

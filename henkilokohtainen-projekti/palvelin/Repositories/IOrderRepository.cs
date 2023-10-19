@@ -4,10 +4,11 @@ namespace palvelin.Repositories
 {
     public interface IOrderRepository
     {
-        Product GetProduct(string id);
-        List<Product> GetProducts();    
-        void AddProduct(Product product);
-        void UpdateProduct(int id, Product product);
-        void DeleteProduct(string id);
+        Order GetOrder(string id);
+        List<Order> GetOrders();
+        void AddOrder(Order order);
+        void UpdateOrder(int id, Order order);
+        void DeleteOrder(string id);
+        
     }
 }
