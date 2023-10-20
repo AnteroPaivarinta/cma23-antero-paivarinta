@@ -9,8 +9,8 @@ namespace palvelin.Services
     public class UserController : ControllerBase
     {
 
-        public IUserRepository _userRepository;
-        public UserController(IUserRepository orderRepository)
+        public ICustomerRepository _userRepository;
+        public UserController(ICustomerRepository orderRepository)
         {
             _userRepository = orderRepository;
         }
@@ -19,7 +19,7 @@ namespace palvelin.Services
         [HttpGet("{id}")]
         public IActionResult GetUserById(string id)
         {
-            User user = _userRepository.GetUsers().FirstOrDefault(o => o.id == id);
+            Account user = _userRepository.GetUsers().FirstOrDefault(o => o.id == id);
 
             if (user == null)
             {
@@ -33,16 +33,16 @@ namespace palvelin.Services
         [HttpGet("list")]
         public IActionResult GetOrders()
         {
-            List<User> users = _userRepository.GetUsers();
+            List<Account> users = _userRepository.GetUsers();
             return Ok(users);
         }
         [HttpPost("addUser")]
-        public void AddUser([FromBody] User user)
+        public void AddUser([FromBody] Account user)
         {
             _userRepository.AddUser(user);
         }
         [HttpPut("{id}")]
-        public void UpdateUser(string id, User user)
+        public void UpdateUser(string id, Account user)
         {
             _userRepository.UpdateUser(id, user);
         }

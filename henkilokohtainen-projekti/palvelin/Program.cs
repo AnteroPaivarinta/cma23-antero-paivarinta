@@ -6,10 +6,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<DatabaseContext>(options => options.UseNpgsql(
-@"Server=PostgreSQL 12;Host=localhost;Port=5432;Username=postgres;Password=1234;Database=shop"));
+@"Server=PostgreSQL 16.0;Host=localhost;Port=5432;Username=postgres;Password=123;Database=shop"));
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<ICustomerRepository, UserRepository>();
 
 builder.Services.AddControllers().AddNewtonsoftJson();
 builder.Services.AddControllers();

@@ -4,11 +4,11 @@ namespace palvelin.Services
 {
     public interface IOrderController
     {
-        List<Order> GetOrders();
-        void AddOrder(Order order);
-        void UpdateOrder(string id, Order order);
+        List<Orderclass> GetOrders();
+        void AddOrder(Orderclass order);
+        void UpdateOrder(string id, Orderclass order);
         void DeleteOrder(string id);
-        Order GetOrder(string id);
+        Orderclass GetOrder(string id);
 
     }
 }

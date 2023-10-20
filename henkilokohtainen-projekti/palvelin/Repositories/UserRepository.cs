@@ -2,7 +2,7 @@
 
 namespace palvelin.Repositories
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository : ICustomerRepository
     {
 
         private readonly DatabaseContext _context;
@@ -11,10 +11,10 @@ namespace palvelin.Repositories
             _context = context;
         }
 
-        public List<User> GetUsers() => _context.Users.ToList();
-        public User GetUser(string id) { return _context.Users.FirstOrDefault(c => c.id == id); }
+        public List<Account> GetUsers() => _context.Users.ToList();
+        public Account GetUser(string id) { return _context.Users.FirstOrDefault(c => c.id == id); }
 
-        public void AddUser(User user)
+        public void AddUser(Account user)
         {
             _context.Users.Add(user);
             _context.SaveChanges();
@@ -26,9 +26,9 @@ namespace palvelin.Repositories
             _context.SaveChanges();
         }
 
-        public void UpdateUser(string id, User newUser)
+        public void UpdateUser(string id, Account newUser)
         {
-            User user = _context.Users.FirstOrDefault((val) => val.id == id);
+            Account user = _context.Users.FirstOrDefault((val) => val.id == id);
             user.id = newUser.id;
             user.firstName = newUser.firstName;
             user.lastName = newUser.lastName;   

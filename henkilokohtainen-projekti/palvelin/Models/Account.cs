@@ -1,6 +1,6 @@
 ﻿namespace palvelin.Models
 {
-    public class User
+    public class Account
     {
         public string id { get; set; }  
         public string firstName { get; set; }   
@@ -10,7 +10,7 @@
         public bool IsAdmin { get; set; }    
 
 
-        public User(string id, string firstName, string lastName, string email, string password, bool isAdmin)
+        public Account(string id, string firstName, string lastName, string email, string password, bool isAdmin)
         {
             this.id = id;
             this.firstName = firstName;

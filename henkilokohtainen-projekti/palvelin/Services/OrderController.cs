@@ -19,7 +19,7 @@ namespace palvelin.Services
         [HttpGet("{id}")]
         public IActionResult GetOrderById(string id)
         {
-            Order order = _orderRepository.GetOrders().FirstOrDefault(o => o.id == id);
+            Orderclass order = _orderRepository.GetOrders().FirstOrDefault(o => o.id == id);
 
             if (order == null)
             {
@@ -33,16 +33,16 @@ namespace palvelin.Services
         [HttpGet("list")]
         public IActionResult GetOrders()
         {
-            List<Order> orders = _orderRepository.GetOrders();
+            List<Orderclass> orders = _orderRepository.GetOrders();
             return Ok(orders);
         }
         [HttpPost("addOrder")]
-        public void AddOrder([FromBody] Order order)
+        public void AddOrder([FromBody] Orderclass order)
         {
             _orderRepository.AddOrder(order);
         }
         [HttpPut("{id}")]
-        public void UpdateOrder(string id, Order order) {
+        public void UpdateOrder(string id, Orderclass order) {
             _orderRepository.UpdateOrder(id, order);
         }
 

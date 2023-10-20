@@ -4,11 +4,11 @@ namespace palvelin.Services
 {
     public interface IUserController
     {
-        List<User> GetUsers();
-        void AddUser(User user);
-        void UpdateUser(string id, User user);
+        List<Account> GetUsers();
+        void AddUser(Account user);
+        void UpdateUser(string id, Account user);
         void DeleteUser(string id);
-        User GetUser(string id);
+        Account GetUser(string id);
 
     }
 }
