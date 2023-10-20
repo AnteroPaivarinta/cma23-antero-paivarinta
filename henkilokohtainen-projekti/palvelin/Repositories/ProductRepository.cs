@@ -12,12 +12,12 @@ namespace palvelin.Repositories
             _context = context;
         }
 
-        public Order GetProduct(string id)
+        public Product GetProduct(string id)
         {
             return _context.Products.FirstOrDefault();
         }
 
-        public List<Order> GetProducts() =>
+        public List<Product> GetProducts() =>
             _context.Products.ToList();
         public void AddProduct(Product product)
         {
@@ -29,11 +29,14 @@ namespace palvelin.Repositories
             _context.Products.Remove(GetProduct(id));   
             _context.SaveChanges();
         }
-        public void UpdateProduct(int id, Product newProdudct)
+        public void UpdateProduct(string id, Product newProduct)
         {
-            var product = _context.Products.FirstOrDefault((val) => val.id == id); 
-            var product.price = 
-            _context.Orders.Update(contact);
+            Product product = _context.Products.FirstOrDefault((val) => val.id == id);
+            product.price = newProduct.price;
+            product.category = newProduct.category;
+            product.id = newProduct.id;
+            product.name = newProduct.name;
+            _context.Products.Update(product);  
             _context.SaveChanges();
         }
     }

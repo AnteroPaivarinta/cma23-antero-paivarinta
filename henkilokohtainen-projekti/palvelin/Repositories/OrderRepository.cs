@@ -12,8 +12,7 @@ namespace palvelin.Repositories
             _context = context;
         }
 
-        public List<Order> GetOrders() =>
-          _context.Orders.ToList();
+        public List<Order> GetOrders() => _context.Orders.ToList();
         public Order GetOrder(string id) { return _context.Orders.FirstOrDefault(c => c.id == id); }
 
         public void AddOrder(Order order)
@@ -28,11 +27,17 @@ namespace palvelin.Repositories
             _context.SaveChanges();
         }
 
-        public void UpdateOrder(int id, Order order) 
+        public void UpdateOrder(string id, Order newOrder)
         {
-           
+            Order order = _context.Orders.FirstOrDefault((val) => val.id == id);
+            order.order_time = newOrder.order_time;
+            order.name = newOrder.name;
+            order.id = newOrder.id;
+            order.order_time = newOrder.order_time;
+            order.product_id = newOrder.product_id;
+            _context.Orders.Update(order);
+            _context.SaveChanges();
             _context.SaveChanges();
         }
-
     }
 }

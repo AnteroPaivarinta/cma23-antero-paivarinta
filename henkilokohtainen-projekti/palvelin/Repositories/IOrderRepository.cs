@@ -7,7 +7,7 @@ namespace palvelin.Repositories
         Order GetOrder(string id);
         List<Order> GetOrders();
         void AddOrder(Order order);
-        void UpdateOrder(int id, Order order);
+        void UpdateOrder(string id, Order order);
         void DeleteOrder(string id);
         
     }
