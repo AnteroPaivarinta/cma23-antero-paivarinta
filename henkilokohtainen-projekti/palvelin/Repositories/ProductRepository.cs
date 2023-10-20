@@ -6,8 +6,8 @@ namespace palvelin.Repositories
     public class ProductRepository : IProductRepository
     {
 
-        private readonly ProductContext _context;
-        public ProductRepository(ProductContext context) 
+        private readonly DatabaseContext _context;
+        public ProductRepository(DatabaseContext context) 
         {
             _context = context;
         }

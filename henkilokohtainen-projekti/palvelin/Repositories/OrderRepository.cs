@@ -6,8 +6,8 @@ namespace palvelin.Repositories
     public class OrderRepository : IOrderRepository
     {
 
-        private readonly OrderContext _context;
-        public OrderRepository(OrderContext context)
+        private readonly DatabaseContext _context;
+        public OrderRepository(DatabaseContext context)
         {
             _context = context;
         }

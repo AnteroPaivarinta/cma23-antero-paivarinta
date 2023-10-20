@@ -9,10 +9,9 @@ builder.Services.AddSingleton<IProductRepository, ProductRepository>();
 builder.Services.AddSingleton<IOrderRepository, OrderRepository>();
 builder.Services.AddSingleton<IUserRepository, UserRepository>();
 builder.Services.AddDbContext<DatabaseContext>(options => options.UseNpgsql(
-@"Server=PostgreSQL 12;Host=localhost;Port=5432;Username=postgres;Password=1234;Database=contacts"));
+@"Server=PostgreSQL 12;Host=localhost;Port=5432;Username=postgres;Password=1234;Database=shop"));
 builder.Services.AddControllers().AddNewtonsoftJson();
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
