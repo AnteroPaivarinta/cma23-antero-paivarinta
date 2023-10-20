@@ -1,13 +1,12 @@
 ﻿using palvelin.Models;
-using palvelin.Repositories;
 
 namespace palvelin.Repositories
 {
     public class UserRepository : IUserRepository
     {
 
-        private readonly UserContext _context;
-        public UserRepository(UserContext context)
+        private readonly DatabaseContext _context;
+        public UserRepository(DatabaseContext context)
         {
             _context = context;
         }
