@@ -33,7 +33,7 @@ namespace palvelin.Repositories
             user.firstName = newUser.firstName;
             user.lastName = newUser.lastName;   
             user.email= newUser.email;  
-            user.isAdmin = newUser.isAdmin; 
+            user.IsAdmin = newUser.IsAdmin; 
             user.password = newUser.password;   
             _context.Users.Update(user);
             _context.SaveChanges();
