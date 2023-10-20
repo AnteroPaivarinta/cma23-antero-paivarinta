@@ -47,7 +47,7 @@ namespace palvelin.Services
             _userRepository.UpdateUser(id, user);
         }
 
-        [HttpDelete("{id")]
+        [HttpDelete("{id}")]
         public void DeleteUser(string id)
         {
             _userRepository.DeleteUser(id);

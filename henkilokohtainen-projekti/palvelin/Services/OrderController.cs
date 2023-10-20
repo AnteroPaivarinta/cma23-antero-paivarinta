@@ -46,7 +46,7 @@ namespace palvelin.Services
             _orderRepository.UpdateOrder(id, order);
         }
 
-        [HttpDelete("{id")]
+        [HttpDelete("{id}")]
         public void DeleteOrder(string id)
         {
             _orderRepository.DeleteOrder(id);
