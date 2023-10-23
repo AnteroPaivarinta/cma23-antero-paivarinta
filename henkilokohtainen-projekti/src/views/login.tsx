@@ -6,6 +6,8 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import Button from 'react-bootstrap/Button';
+import axios from 'axios';
+
 
 const Login = () => {
     const [username, setUsername ] = useState('');
@@ -34,10 +36,10 @@ const Login = () => {
         </div>
         <div className='item-b'>
             <div style={{ display: 'flex', flexDirection: 'column'}}>
-            <input onChange={(e) => onHandleUsername(e)} placeholder='Username'><label>Username </label></input>
-            <input onChange={(e) => onHandlePassword(e)} placeholder='Password'><label>Password </label></input>
-            <button onClick={(() => loginPost())}></button>
-        </div>
+                <label>Username </label><input onChange={(e) => onHandleUsername(e)} placeholder='Username'></input>
+                <label>Password </label><input onChange={(e) => onHandlePassword(e)} placeholder='Password'></input>
+                <button onClick={(() => loginPost())}>LOGIN</button>
+            </div>
         </div>
         <div className='item-c'></div>
         <div className='item-d'>

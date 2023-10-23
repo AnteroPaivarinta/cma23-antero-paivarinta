@@ -16,7 +16,9 @@ const Cart = () => {
         <h1 style={{color: 'white', fontSize: 30, padding: 15, alignSelf: 'center'}}>Anteron verkkokauppa</h1>
         <div style={{alignSelf: 'center', display: 'flex', flexDirection: 'row', padding: 10}}>
           <Link to="/cart"> <FontAwesomeIcon color='white' fontSize={30} icon={faCartShopping}/> </Link>
-          <Link style={{ textDecoration: 'none', backgroundColor: 'white', borderRadius: 10, fontSize: 20 ,color: 'red'}} to="/main">Shopping</Link>
+            <Link style={{ textDecoration: 'none', backgroundColor: 'white', borderRadius: 10, fontSize: 20 ,color: 'red'}} to="/main">Shopping</Link>
+            <Link to="/cart"> Login </Link>
+            <Link to="/main">Register</Link>
         </div>
       </div>
       <div className='item-b'>

@@ -15,6 +15,7 @@ namespace ex1.Controllers
         {
             courseRepository = _courseRepository;
         }
+
         [HttpGet("courses/{id}")]
         public Course Get(int id)
         {

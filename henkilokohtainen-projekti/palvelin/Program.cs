@@ -15,9 +15,23 @@ builder.Services.AddControllers().AddNewtonsoftJson();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin",
+        builder =>
+        {
+            builder
+                .WithOrigins("http://localhost:3000")
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+});
 
+// Configure-metodissa
 
 var app = builder.Build();
+app.UseCors("AllowSpecificOrigin");
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

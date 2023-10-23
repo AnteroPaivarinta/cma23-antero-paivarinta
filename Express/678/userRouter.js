@@ -8,7 +8,6 @@ const arr = [];
 const argon2 = require('argon2');
 const user = process.env.USER;
 const PW = process.env.PW;
-
 //---------------
 const jwt = require('jsonwebtoken')
 const payload = { username: 'sugarplumfairy' }
@@ -17,9 +16,6 @@ const options = { expiresIn: '0.25h'}
 let token = jwt.sign(payload, secret, options)
 console.log(token)
 //Tehtävä 6---------
-
-
-
 //7
 const secretKey = 'AAA';
 const tokenToVerify = 'BBB';
@@ -32,13 +28,8 @@ try {
   console.error('Token verification failed. Error message:');
   console.error(err.message);
 }
-
 //7
-
-
-
 //8
-
 const authenticate = (req, res, next) => {
     const auth = req.get('Authorization')
     if (!auth?.startsWith('Bearer ')) {
@@ -54,8 +45,6 @@ const authenticate = (req, res, next) => {
         return res.status(401).send('Invalid token')
     }
 }
-
-
 //8
 
 app.use(cors());
@@ -63,7 +52,6 @@ app.use(express.json())
 app.get('/', authenticate, (req, res) => {
   res.send('Hello world');
 });
-
 app.post('/register', async(req, res) => {
     console.log('REQ', req.body)
     const {username, password } = req.body;
