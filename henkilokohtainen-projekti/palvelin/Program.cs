@@ -1,6 +1,10 @@
 using palvelin.Repositories;
 using Microsoft.EntityFrameworkCore;
 using palvelin.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.AspNetCore.Builder;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +14,20 @@ builder.Services.AddDbContext<DatabaseContext>(options => options.UseNpgsql(
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<ICustomerRepository, UserRepository>();
-
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+        .AddJwtBearer(options =>
+        {
+            options.TokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateLifetime = true,
+                ValidateIssuerSigningKey = true,
+                ValidIssuer = "myissuer",
+                ValidAudience = "myaudience", 
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("my-secret-key")) 
+            };
+        });
 builder.Services.AddControllers().AddNewtonsoftJson();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -30,6 +47,8 @@ builder.Services.AddCors(options =>
 // Configure-metodissa
 
 var app = builder.Build();
+app.UseMiddleware();
+
 app.UseCors("AllowSpecificOrigin");
 
 
@@ -43,7 +62,6 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();

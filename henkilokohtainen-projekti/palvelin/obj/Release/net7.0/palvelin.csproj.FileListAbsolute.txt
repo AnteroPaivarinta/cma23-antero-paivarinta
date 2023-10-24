@@ -45,3 +45,10 @@ C:\code\cma23-antero-paivarinta\henkilokohtainen-projekti\palvelin\obj\Release\n
 C:\code\cma23-antero-paivarinta\henkilokohtainen-projekti\palvelin\obj\Release\net7.0\palvelin.pdb
 C:\code\cma23-antero-paivarinta\henkilokohtainen-projekti\palvelin\obj\Release\net7.0\palvelin.genruntimeconfig.cache
 C:\code\cma23-antero-paivarinta\henkilokohtainen-projekti\palvelin\obj\Release\net7.0\ref\palvelin.dll
+C:\code\cma23-antero-paivarinta\henkilokohtainen-projekti\palvelin\bin\Release\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\code\cma23-antero-paivarinta\henkilokohtainen-projekti\palvelin\bin\Release\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\code\cma23-antero-paivarinta\henkilokohtainen-projekti\palvelin\bin\Release\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\code\cma23-antero-paivarinta\henkilokohtainen-projekti\palvelin\bin\Release\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\code\cma23-antero-paivarinta\henkilokohtainen-projekti\palvelin\bin\Release\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\code\cma23-antero-paivarinta\henkilokohtainen-projekti\palvelin\bin\Release\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\code\cma23-antero-paivarinta\henkilokohtainen-projekti\palvelin\bin\Release\net7.0\System.IdentityModel.Tokens.Jwt.dll

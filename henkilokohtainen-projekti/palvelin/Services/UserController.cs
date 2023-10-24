@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using palvelin.Repositories;
 using palvelin.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace palvelin.Services
 {
+    [Authorize]
     [ApiController]
     [Route("api/users")]
     public class UserController : ControllerBase
@@ -14,13 +16,11 @@ namespace palvelin.Services
         {
             _userRepository = orderRepository;
         }
-
-
         [HttpGet("{id}")]
+
         public IActionResult GetUserById(string id)
         {
             Account user = _userRepository.GetUsers().FirstOrDefault(o => o.id == id);
-
             if (user == null)
             {
                 return NotFound();
