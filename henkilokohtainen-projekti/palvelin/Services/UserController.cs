@@ -6,10 +6,10 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Security.Principal;
 
 namespace palvelin.Services
 {
-    [Authorize]
     [ApiController]
     [Route("api/users")]
     public class UserController : ControllerBase
@@ -22,7 +22,6 @@ namespace palvelin.Services
             _configuration = configuration;
         }
         [HttpGet("{id}")]
-
         public IActionResult GetUserById(string id)
         {
             Account user = _userRepository.GetUsers().FirstOrDefault(o => o.id == id);
@@ -36,7 +35,7 @@ namespace palvelin.Services
             }
         }
         [HttpGet("list")]
-        public IActionResult GetOrders()
+        public IActionResult GetUsers()
         {
             List<Account> users = _userRepository.GetUsers();
             return Ok(users);
@@ -58,18 +57,51 @@ namespace palvelin.Services
             _userRepository.DeleteUser(id);
         }
 
-        public string GenerateToken(Account user)
+        [HttpPost("Login")]
+        public IActionResult LoginUser(Account account)
+        {
+            var token = GenerateToken(account);
+            return Ok(token);
+            
+        }
+
+        [HttpGet("secret")]
+        public IActionResult Secret(Account account)
+        {
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            var userClaims = identity.Claims;
+            string firstName = userClaims.FirstOrDefault(x => x.Type == "firstName")?.Value;
+            string lastName = userClaims.FirstOrDefault(x => x.Type == "lastName")?.Value;
+            string email = userClaims.FirstOrDefault(x => x.Type == "email")?.Value;
+            string password = userClaims.FirstOrDefault(x => x.Type == "password")?.Value;
+            string id = userClaims.FirstOrDefault(x => x.Type == "id")?.Value;
+            bool IsAdmin = true;
+            Account acc = new Account(id, firstName, lastName, email, password, IsAdmin);
+
+            return Ok("Tervetuloa");
+
+        }
+
+        [HttpGet("testi")]
+
+        public IActionResult Test()
+        {
+            return Ok("HELLO");
+        }
+
+        private string GenerateToken(Account user)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:SecretKey"]));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
             var claims = new[]
             {
+                 new Claim("id", user.id),
                 new Claim("firstName", user.firstName),
                 new Claim("lastName", user.lastName),
                 new Claim("password", user.password),
                 new Claim("email", user.email),
-                new Claim("isAdmin", user.IsAdmin.ToString())
+                new Claim("IsAdmin", "true")
             };
 
             var token = new JwtSecurityToken(
@@ -85,7 +117,7 @@ namespace palvelin.Services
         private Account Authenticate(Account userLogin)
         {
             var currentUser = _userRepository.GetUsers().FirstOrDefault(x => x.firstName ==
-                userLogin.firstName && x.password == userLogin.password && userLogin.lastName == userLogin.lastName && userLogin.IsAdmin == x.IsAdmin);
+                userLogin.firstName && x.password == userLogin.password && userLogin.lastName == userLogin.lastName && userLogin.isadmin == x.isadmin);
             if (currentUser != null)
             {
                 return currentUser;
