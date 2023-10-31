@@ -9,25 +9,25 @@ using Microsoft.AspNetCore.Builder;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options => {
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+    };
+});
 builder.Services.AddDbContext<DatabaseContext>(options => options.UseNpgsql(
 @"Server=PostgreSQL 16.0;Host=localhost;Port=5432;Username=postgres;Password=123;Database=shop"));
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<ICustomerRepository, UserRepository>();
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-        .AddJwtBearer(options =>
-        {
-            options.TokenValidationParameters = new TokenValidationParameters
-            {
-                ValidateIssuer = true,
-                ValidateAudience = true,
-                ValidateLifetime = true,
-                ValidateIssuerSigningKey = true,
-                ValidIssuer = "myissuer",
-                ValidAudience = "myaudience", 
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("my-secret-key")) 
-            };
-        });
+
+
 builder.Services.AddControllers().AddNewtonsoftJson();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -47,8 +47,6 @@ builder.Services.AddCors(options =>
 // Configure-metodissa
 
 var app = builder.Build();
-app.UseMiddleware();
-
 app.UseCors("AllowSpecificOrigin");
 
 
@@ -60,8 +58,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
-
 app.Run();

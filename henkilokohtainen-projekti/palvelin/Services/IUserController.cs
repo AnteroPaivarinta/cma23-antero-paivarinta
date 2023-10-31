@@ -9,6 +9,8 @@ namespace palvelin.Services
         void UpdateUser(string id, Account user);
         void DeleteUser(string id);
         Account GetUser(string id);
+        string GenerateToken(Account user);
+        Account Authenticate(Account userLogin);
 
     }
 }

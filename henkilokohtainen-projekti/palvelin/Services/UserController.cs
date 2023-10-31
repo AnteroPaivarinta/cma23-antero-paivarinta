@@ -2,6 +2,10 @@
 using palvelin.Repositories;
 using palvelin.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 namespace palvelin.Services
 {
@@ -10,11 +14,12 @@ namespace palvelin.Services
     [Route("api/users")]
     public class UserController : ControllerBase
     {
-
+        private readonly IConfiguration _configuration;
         public ICustomerRepository _userRepository;
-        public UserController(ICustomerRepository orderRepository)
+        public UserController(ICustomerRepository userRepository, IConfiguration configuration)
         {
-            _userRepository = orderRepository;
+            _userRepository = userRepository;
+            _configuration = configuration;
         }
         [HttpGet("{id}")]
 
@@ -52,6 +57,42 @@ namespace palvelin.Services
         {
             _userRepository.DeleteUser(id);
         }
+
+        public string GenerateToken(Account user)
+        {
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:SecretKey"]));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+            var claims = new[]
+            {
+                new Claim("firstName", user.firstName),
+                new Claim("lastName", user.lastName),
+                new Claim("password", user.password),
+                new Claim("email", user.email),
+                new Claim("isAdmin", user.IsAdmin.ToString())
+            };
+
+            var token = new JwtSecurityToken(
+                issuer: null,
+                audience: null,
+                claims: claims,
+                expires: DateTime.UtcNow.AddMinutes(30),
+                signingCredentials: credentials);
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        private Account Authenticate(Account userLogin)
+        {
+            var currentUser = _userRepository.GetUsers().FirstOrDefault(x => x.firstName ==
+                userLogin.firstName && x.password == userLogin.password && userLogin.lastName == userLogin.lastName && userLogin.IsAdmin == x.IsAdmin);
+            if (currentUser != null)
+            {
+                return currentUser;
+            }
+            return null;
+        }
+
 
     }
 }

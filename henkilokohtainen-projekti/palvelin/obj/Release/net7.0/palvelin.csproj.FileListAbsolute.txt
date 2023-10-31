@@ -52,3 +52,4 @@ C:\code\cma23-antero-paivarinta\henkilokohtainen-projekti\palvelin\bin\Release\n
 C:\code\cma23-antero-paivarinta\henkilokohtainen-projekti\palvelin\bin\Release\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\code\cma23-antero-paivarinta\henkilokohtainen-projekti\palvelin\bin\Release\net7.0\Microsoft.IdentityModel.Tokens.dll
 C:\code\cma23-antero-paivarinta\henkilokohtainen-projekti\palvelin\bin\Release\net7.0\System.IdentityModel.Tokens.Jwt.dll
+C:\code\cma23-antero-paivarinta\henkilokohtainen-projekti\palvelin\bin\Release\net7.0\Microsoft.IdentityModel.Abstractions.dll
