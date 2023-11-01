@@ -65,9 +65,9 @@ namespace palvelin.Services
             return Ok(token);
             
         }
-
-        [HttpGet("secret")]
-        public IActionResult Secret(Account account)
+        [HttpGet("Secret")]
+        [Authorize] // Salli pääsy kaikille kirjautuneille käyttäjille
+        public IActionResult Secret()
         {
             var identity = HttpContext.User.Identity as ClaimsIdentity;
             var userClaims = identity.Claims;
@@ -76,15 +76,12 @@ namespace palvelin.Services
             string email = userClaims.FirstOrDefault(x => x.Type == "email")?.Value;
             string password = userClaims.FirstOrDefault(x => x.Type == "password")?.Value;
             string id = userClaims.FirstOrDefault(x => x.Type == "id")?.Value;
-            bool IsAdmin = true;
-            Account acc = new Account(id, firstName, lastName, email, password, IsAdmin);
 
             return Ok("Tervetuloa");
-
         }
 
         [HttpGet("testi")]
-
+       
         public IActionResult Test()
         {
             return Ok("HELLO");
