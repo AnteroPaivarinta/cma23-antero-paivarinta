@@ -97,8 +97,8 @@ namespace palvelin.Services
             var claims = new[]
             {
                  new Claim("id", user.id),
-                new Claim("firstName", user.firstName),
-                new Claim("lastName", user.lastName),
+                new Claim("firstName", user.firstname),
+                new Claim("lastName", user.lastname),
                 new Claim("password", user.password),
                 new Claim("email", user.email),
                 new Claim("IsAdmin", "true")
@@ -116,8 +116,8 @@ namespace palvelin.Services
 
         private Account Authenticate(Account userLogin)
         {
-            var currentUser = _userRepository.GetUsers().FirstOrDefault(x => x.firstName ==
-                userLogin.firstName && x.password == userLogin.password && userLogin.lastName == userLogin.lastName && userLogin.isadmin == x.isadmin);
+            var currentUser = _userRepository.GetUsers().FirstOrDefault(x => x.firstname ==
+                userLogin.firstname && x.password == userLogin.password && userLogin.lastname == userLogin.lastname && userLogin.isadmin == x.isadmin);
             if (currentUser != null)
             {
                 return currentUser;

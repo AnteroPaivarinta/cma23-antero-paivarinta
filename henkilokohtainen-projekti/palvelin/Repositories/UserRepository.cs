@@ -30,8 +30,8 @@ namespace palvelin.Repositories
         {
             Account user = _context.Users.FirstOrDefault((val) => val.id == id);
             user.id = newUser.id;
-            user.firstName = newUser.firstName;
-            user.lastName = newUser.lastName;   
+            user.firstname = newUser.firstname;
+            user.lastname = newUser.lastname;   
             user.email= newUser.email;  
             user.isadmin = newUser.isadmin; 
             user.password = newUser.password;   
