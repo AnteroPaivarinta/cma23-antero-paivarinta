@@ -94,7 +94,7 @@ namespace palvelin.Services
 
             var claims = new[]
             {
-                 new Claim("id", user.id),
+                new Claim("id", user.id),
                 new Claim("firstName", user.firstname),
                 new Claim("lastName", user.lastname),
                 new Claim("password", user.password),
@@ -103,8 +103,8 @@ namespace palvelin.Services
             };
 
             var token = new JwtSecurityToken(
-                issuer: null,
-                audience: null,
+                _configuration["Jwt:Issuer"],
+                _configuration["Jwt:Audience"],
                 claims: claims,
                 expires: DateTime.UtcNow.AddMinutes(30),
                 signingCredentials: credentials);
