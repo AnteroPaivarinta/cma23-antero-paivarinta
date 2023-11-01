@@ -4,12 +4,43 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import Button from 'react-bootstrap/Button';
-
+import axios from 'axios';
 
 const Cart = () => {
   
   const products: any = useSelector(state => state);
   const total: number = products.map((val:any) => val.price).reduce((accumulator:any, currentValue:any) => accumulator + currentValue, 0);
+  const makeOrder = () => {
+    const date = Date.now().toString()
+    for(let i = 0; i < products.length; i++){
+      
+      const jwtToken = localStorage.getItem('token');
+      console.log('JWTTOKEN', jwtToken);
+      if(jwtToken) {
+        const decodedToken = JSON.parse(atob(jwtToken.split(".")[1]));
+        const ob = {
+          id: products[i].id,
+          order_time: date,
+          product_id: products[i].product_id, 
+          name: products[i].name,
+          user_id: decodedToken.id
+        }
+        const headers = {
+          'Authorization': `Bearer ${jwtToken}`,
+          'Content-Type': 'application/json' 
+        };
+        axios.post("http://localhost:5185/api/orders/addOrder", ob, { headers })
+          .then(response => {
+            console.log('Vastaus:', response.data);
+          })
+          .catch(error => {
+            console.error('Virhe:', error);
+          });
+      }
+    }
+     
+
+  }
   return (
     <div className="container-B">
       <div className='item-a'>
@@ -26,7 +57,7 @@ const Cart = () => {
           {products.map((value:any) => <li style={{margin: 5}} key={value.name}>Nimi: {value.name}, Hinta: {value.price} $ </li>)}
           <hr style={{color:'white'}}></hr>
           <div style={{margin: 5}}>Total: {total} $</div>
-          <Button style={{marginTop: 10, alignSelf: 'center', justifySelf: 'center'}} onClick={() => console.log('BUY')} size="sm" variant="success">TEE TILAUS</Button>
+          <Button style={{marginTop: 10, alignSelf: 'center', justifySelf: 'center'}} onClick={() => makeOrder()} size="sm" variant="success">TEE TILAUS</Button>
         </div>
       </div>
       <div className='item-c'></div>

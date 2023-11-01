@@ -60,17 +60,20 @@ const Main = (props: IMainProps) => {
             <Link style={{ textDecoration: 'none', backgroundColor: 'white', borderRadius: 10, fontSize: 20, color: 'red'}} to="/main">Shopping</Link>
             <Link to="/login"> Login </Link>
             <Link to="/register">Register</Link>
+            <button onClick={() =>  localStorage.removeItem('token')}>Logout</button>
           </div>
       </div>
       <div className='item-b'>
         <FilterList data={data} onSaveFilter={onSaveFilter}/>
       </div>
       <div className='item-c'>
-        <ProductsList 
-          addToCart={addToCart} 
-          data={(filter === 'Kaikki' ? products : products.filter((value:IProduct) => value.category === filter))} 
-          onItemClick={onItemClick}
-        /> 
+        { localStorage.getItem('token') &&
+          <ProductsList 
+            addToCart={addToCart} 
+            data={(filter === 'Kaikki' ? products : products.filter((value:IProduct) => value.category === filter))} 
+            onItemClick={onItemClick}
+          /> 
+        }
       </div>
      
       <div className='item-d'>

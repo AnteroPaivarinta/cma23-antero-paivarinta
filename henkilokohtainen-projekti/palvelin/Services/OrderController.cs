@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using palvelin.Repositories;
 using palvelin.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace palvelin.Services
 {
@@ -37,6 +38,7 @@ namespace palvelin.Services
             return Ok(orders);
         }
         [HttpPost("addOrder")]
+        [Authorize]
         public void AddOrder([FromBody] Orderclass order)
         {
             _orderRepository.AddOrder(order);

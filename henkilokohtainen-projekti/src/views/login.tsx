@@ -17,12 +17,12 @@ const Login = () => {
         setUsername(e.target.value)
     }
     const onHandlePassword = (e:any) => {
-        setPassword(e)
+        setPassword(e.target.value)
     }
     const loginPost = () => {
-        console.log('LoginPost')
+        axios.post("http://localhost:5185/api/users/Login", {firstname: username, password: password}).then((response) =>
+        localStorage.setItem('token', response.data));
     }
-    
     return(
         <div className="container-B">
         <div className='item-a'>
@@ -36,9 +36,11 @@ const Login = () => {
         </div>
         <div className='item-b'>
             <div style={{ display: 'flex', flexDirection: 'column'}}>
-                <label>Username </label><input onChange={(e) => onHandleUsername(e)} placeholder='Username'></input>
+                <label>Firstname </label><input onChange={(e) => onHandleUsername(e)} placeholder='Firstname'></input>
                 <label>Password </label><input onChange={(e) => onHandlePassword(e)} placeholder='Password'></input>
+              
                 <button onClick={(() => loginPost())}>LOGIN</button>
+                {localStorage.getItem('token')?.toString()}
             </div>
         </div>
         <div className='item-c'></div>

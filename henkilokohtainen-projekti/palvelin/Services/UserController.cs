@@ -58,11 +58,20 @@ namespace palvelin.Services
         }
 
         [HttpPost("Login")]
-        public IActionResult LoginUser([FromBody] Account account)
+        public IActionResult LoginUser([FromBody] LoginForm loginform)
         {
-
-            var token = GenerateToken(account);
-            return Ok(token);
+            List<Account> users = _userRepository.GetUsers();
+            var user =  users.FirstOrDefault(value => value.firstname == loginform.firstname && value.password == loginform.password);
+            if (user != null)
+            {
+                var token = GenerateToken(user);
+                return (Ok(token));
+            }
+            else
+            {
+                return BadRequest();
+            }
+           
             
         }
         [HttpGet("Secret")]
@@ -76,8 +85,16 @@ namespace palvelin.Services
             string email = userClaims.FirstOrDefault(x => x.Type == "email")?.Value;
             string password = userClaims.FirstOrDefault(x => x.Type == "password")?.Value;
             string id = userClaims.FirstOrDefault(x => x.Type == "id")?.Value;
-
+            string isAdmin = userClaims.FirstOrDefault(x => x.Type == "IsAdmin")?.Value;
+            if(isAdmin != "true")
+            {
+                return NotFound("Autentikaatio epäonnistui");
+            }
+            else
+            {
             return Ok("Tervetuloa");
+
+            }
         }
 
         [HttpGet("testi")]
@@ -99,7 +116,7 @@ namespace palvelin.Services
                 new Claim("lastName", user.lastname),
                 new Claim("password", user.password),
                 new Claim("email", user.email),
-                new Claim("IsAdmin", "true")
+                new Claim("IsAdmin", user.isadmin.ToString())
             };
 
             var token = new JwtSecurityToken(

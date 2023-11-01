@@ -18,7 +18,7 @@ const Register = () => {
     const [password, setPassword ] = useState('');
     const [email, setEmail] = useState('');
     const address = 'http://localhost:5185/api/users/';
-    const path = 'addusers';
+    const path = 'addUser';
 
     const onHandleUsername = (e:any) => {
         setFirstname(e.target.value)
@@ -37,7 +37,7 @@ const Register = () => {
     }
 
     const registerPost = () => {
-        const user:IUser = {firstName: firstname, lastName: lastname ,password: password, email: email, IsAdmin: false, id: uuidv4()};
+        const user:IUser = {firstname: firstname, lastname: lastname ,password: password, email: email, isadmin: false, id: uuidv4()};
         axios.post(address+path, user)
     }
     return(

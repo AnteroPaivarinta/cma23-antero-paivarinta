@@ -38,10 +38,10 @@ export interface IMainProps {
 
 export interface IUser {
     id: string,
-    firstName:string,
-    lastName:string,
+    firstname:string,
+    lastname:string,
     password:string,
     email:string,
-    IsAdmin: boolean,
+    isadmin: boolean,
 }
 
