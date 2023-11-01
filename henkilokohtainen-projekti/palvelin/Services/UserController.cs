@@ -58,8 +58,9 @@ namespace palvelin.Services
         }
 
         [HttpPost("Login")]
-        public IActionResult LoginUser(Account account)
+        public IActionResult LoginUser([FromBody] Account account)
         {
+
             var token = GenerateToken(account);
             return Ok(token);
             
@@ -91,7 +92,7 @@ namespace palvelin.Services
 
         private string GenerateToken(Account user)
         {
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:SecretKey"]));
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
             var claims = new[]
