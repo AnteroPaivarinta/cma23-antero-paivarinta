@@ -16,7 +16,7 @@ const Main = (props: IMainProps) => {
   const [filter, setFilter] = useState('Kaikki');
   const { param } = useParams();
   const navigate = useNavigate();
-  const products: IProduct[] = [{name: 'Joku tuoli', id: '23', price: 30, category: 'Tuolit'}, {category: 'Vaatteet', id: '24' ,name: 'neule', price: 30}];
+  const products: IProduct[] = [{name: 'Joku tuoli', id: '23', price: 30, category: 'Tuolit'}, {category: 'Vaatteet', id: '24', name: 'neule', price: 30}];
 
   const onSaveFilter = (filter: string) => {
     setFilter(filter)
@@ -26,6 +26,7 @@ const Main = (props: IMainProps) => {
     dispatch({
       type: 'NEW_PRODUCT',
       payload: {
+        id: item.id,
         name: item.name,
         category: item.category,
         price: item.price

@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
+
 
 const Cart = () => {
   
@@ -12,6 +14,7 @@ const Cart = () => {
   const total: number = products.map((val:any) => val.price).reduce((accumulator:any, currentValue:any) => accumulator + currentValue, 0);
   const makeOrder = () => {
     const date = Date.now().toString()
+    const randomId: string =  uuidv4();
     for(let i = 0; i < products.length; i++){
       
       const jwtToken = localStorage.getItem('token');
@@ -19,12 +22,13 @@ const Cart = () => {
       if(jwtToken) {
         const decodedToken = JSON.parse(atob(jwtToken.split(".")[1]));
         const ob = {
-          id: products[i].id,
+          id: randomId,
           order_time: date,
-          product_id: products[i].product_id, 
+          product_id: products[i].id,
           name: products[i].name,
           user_id: decodedToken.id
         }
+        console.log('OB', ob)
         const headers = {
           'Authorization': `Bearer ${jwtToken}`,
           'Content-Type': 'application/json' 
@@ -38,8 +42,6 @@ const Cart = () => {
           });
       }
     }
-     
-
   }
   return (
     <div className="container-B">

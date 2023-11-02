@@ -15,8 +15,6 @@ namespace palvelin.Services
         {
             _orderRepository = orderRepository;
         }
-
-        
         [HttpGet("{id}")]
         public IActionResult GetOrderById(string id)
         {

@@ -71,8 +71,6 @@ namespace palvelin.Services
             {
                 return BadRequest();
             }
-           
-            
         }
         [HttpGet("Secret")]
         [Authorize] // Salli pääsy kaikille kirjautuneille käyttäjille
@@ -92,7 +90,7 @@ namespace palvelin.Services
             }
             else
             {
-            return Ok("Tervetuloa");
+                return Ok("Tervetuloa");
 
             }
         }
