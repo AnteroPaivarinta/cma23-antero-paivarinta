@@ -1,0 +1,6 @@
+lint-job:
+  image: node:21
+  stage: test
+  script:
+    - npm install
+    - npm run lint
