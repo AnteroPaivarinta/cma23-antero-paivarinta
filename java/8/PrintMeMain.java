@@ -30,7 +30,7 @@ public class PrintMeMain {
   public static void printValuesOfKeysWhere(HashMap<String,String> hashmap, String text){
     for(String value : hashmap.values()){
       if(value.contains(text)){
-        System.out.println(value)
+        System.out.println(value);
       }
     }
   }
