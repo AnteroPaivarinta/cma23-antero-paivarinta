@@ -1,7 +1,69 @@
 {
     "version": "0.2.0",
     "configurations": [
-        
+        {
+            "type": "java",
+            "name": "ArrayAsStringMission",
+            "request": "launch",
+            "mainClass": "ArrayAsStringMission",
+            "projectName": "cma23-antero-paivarinta_4ae15983"
+        },
+        {
+            "type": "java",
+            "name": "LotteryMission",
+            "request": "launch",
+            "mainClass": "LotteryMission",
+            "projectName": "cma23-antero-paivarinta_4ae15983"
+        },
+        {
+            "type": "java",
+            "name": "Numbers",
+            "request": "launch",
+            "mainClass": "Numbers",
+            "projectName": "cma23-antero-paivarinta_4ae15983"
+        },
+        {
+            "type": "java",
+            "name": "PipeMission",
+            "request": "launch",
+            "mainClass": "PipeMission",
+            "projectName": "cma23-antero-paivarinta_4ae15983"
+        },
+        {
+            "type": "java",
+            "name": "HideoutMission",
+            "request": "launch",
+            "mainClass": "HideoutMission",
+            "projectName": "cma23-antero-paivarinta_4ae15983"
+        },
+        {
+            "type": "java",
+            "name": "WageOrder",
+            "request": "launch",
+            "mainClass": "WageOrder",
+            "projectName": "cma23-antero-paivarinta_4ae15983"
+        },
+        {
+            "type": "java",
+            "name": "LimitedNumbers",
+            "request": "launch",
+            "mainClass": "LimitedNumbers",
+            "projectName": "cma23-antero-paivarinta_4ae15983"
+        },
+        {
+            "type": "java",
+            "name": "PritingUserInput",
+            "request": "launch",
+            "mainClass": "PritingUserInput",
+            "projectName": "cma23-antero-paivarinta_4ae15983"
+        },
+        {
+            "type": "java",
+            "name": "divisible",
+            "request": "launch",
+            "mainClass": "divisible",
+            "projectName": "cma23-antero-paivarinta_4ae15983"
+        },
         {
             "name": "Attach to Node Functions",
             "type": "node",
