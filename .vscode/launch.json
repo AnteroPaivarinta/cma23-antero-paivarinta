@@ -6,6 +6,13 @@
             "name": "App",
             "request": "launch",
             "mainClass": "com.example/com.example.App",
+            "projectName": "greeter"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "com.example/com.example.App",
             "projectName": "multiple-views"
         },
         {
