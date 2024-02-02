@@ -3,6 +3,55 @@
     "configurations": [
         {
             "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "com.example/com.example.App",
+            "projectName": "multiple-views"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "com.example/com.example.App",
+            "projectName": "user-title"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "com.example/com.example.App",
+            "projectName": "notifier"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "com.example/com.example.App",
+            "projectName": "myfirstapp"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "App",
+            "projectName": "cma23-antero-paivarinta_4ae15983"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "com.myfirstapp/com.myfirstapp.App",
+            "projectName": "demo"
+        },
+        {
+            "type": "java",
+            "name": "JavaFxApplication",
+            "request": "launch",
+            "mainClass": "JavaFxApplication",
+            "projectName": "cma23-antero-paivarinta_4ae15983"
+        },
+        {
+            "type": "java",
             "name": "ArrayAsStringMission",
             "request": "launch",
             "mainClass": "ArrayAsStringMission",

@@ -5,5 +5,14 @@
     "azureFunctions.projectRuntime": "~4",
     "debug.internalConsoleOptions": "neverOpen",
     "azureFunctions.projectLanguageModel": 4,
-    "azureFunctions.preDeployTask": "npm prune (functions)"
+    "azureFunctions.preDeployTask": "npm prune (functions)",
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-11",
+            "path": "/path/to/your/jdk-11",
+            "default": true,
+            "debugger": true,
+            "vmArgs": ["--module-path", "/path/to/your/javafx-sdk/lib", "--add-modules", "javafx.controls,javafx.fxml"]
+        }
+    ]
 }
