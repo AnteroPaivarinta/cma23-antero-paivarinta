@@ -6,6 +6,20 @@
             "name": "App",
             "request": "launch",
             "mainClass": "com.example/com.example.App",
+            "projectName": "vocabulary"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "com.example/com.example.App",
+            "projectName": "joke"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "com.example/com.example.App",
             "projectName": "greeter"
         },
         {
